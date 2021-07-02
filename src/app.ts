@@ -1,9 +1,5 @@
 // autobind decorator
-const autobind = (
-  _1: any,
-  _2: string,
-  descriptor: PropertyDescriptor
-) => {
+const autobind = (_1: any, _2: string, descriptor: PropertyDescriptor) => {
   const originalMethod = descriptor.value;
   const adjDescriptor: PropertyDescriptor = {
     configurable: true,
@@ -23,7 +19,7 @@ class ProjectInput {
   element: HTMLFormElement;
   titleInputElement: HTMLInputElement;
   descriptionInputElement: HTMLInputElement;
-  mondayInputElement: HTMLInputElement;
+  mandayInputElement: HTMLInputElement;
 
   constructor() {
     this.templateElement = document.getElementById(
@@ -44,18 +40,45 @@ class ProjectInput {
     this.descriptionInputElement = this.element.querySelector(
       '#description'
     ) as HTMLInputElement;
-    this.mondayInputElement = this.element.querySelector(
-      '#monday'
+    this.mandayInputElement = this.element.querySelector(
+      '#manday'
     ) as HTMLInputElement;
 
     this.configure();
     this.attach();
   }
 
+  private gatherUserInput(): [string, string, number] | void {
+    const enteredTitle = this.titleInputElement.value;
+    const enteredDescription = this.descriptionInputElement.value;
+    const enteredMandy = this.mandayInputElement.value;
+    if (
+      enteredTitle.trim().length === 0 ||
+      enteredDescription.trim().length === 0 ||
+      enteredMandy.trim().length === 0
+    ) {
+      alert('入力値が正しくありません。');
+      return;
+    } else {
+      return [enteredTitle, enteredDescription, +enteredMandy];
+    }
+  }
+
+  private clearInputs() {
+    this.titleInputElement.value = '';
+    this.descriptionInputElement.value = '';
+    this.mandayInputElement.value = '';
+  }
+
   @autobind
   private submitHandler(event: Event) {
     event.preventDefault();
-    console.log(this.titleInputElement.value);
+    const userInput = this.gatherUserInput();
+    if (Array.isArray(userInput)) {
+      const [title, desc, manday] = userInput;
+      console.log([title, desc, manday]);
+      this.clearInputs();
+    }
   }
 
   private configure() {
