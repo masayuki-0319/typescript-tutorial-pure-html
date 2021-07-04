@@ -108,7 +108,7 @@ class ProjectInput {
       minLength: 5,
     };
     const mandayValidatable: Validatable = {
-      value: enteredMandy,
+      value: +enteredMandy,
       required: true,
       min: 1,
       max: 1000,
