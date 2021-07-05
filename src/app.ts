@@ -1,8 +1,3 @@
-/// <reference path="decorators/autobind.ts" />
-/// <reference path="models/drag-drop.ts" />
-/// <reference path="models/ProjectModel.ts" />
-/// <reference path="state/ProjectState.ts" />
-/// <reference path="util/Validation.ts" />
 /// <reference path="components/ProjectInput.ts"/>
 /// <reference path="components/ProjectList.ts"/>
 
