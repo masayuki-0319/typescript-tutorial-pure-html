@@ -1,6 +1,10 @@
+// autobind decorator
 namespace App {
-  // autobind decorator
-  export const autobind = (_1: any, _2: string, descriptor: PropertyDescriptor) => {
+  export const autobind = (
+    _1: any,
+    _2: string,
+    descriptor: PropertyDescriptor
+  ) => {
     const originalMethod = descriptor.value;
     const adjDescriptor: PropertyDescriptor = {
       configurable: true,
