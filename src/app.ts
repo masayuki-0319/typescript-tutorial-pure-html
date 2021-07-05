@@ -1,6 +1,6 @@
-import { ProjectInput } from './components/ProjectInput.js';
-import { ProjectList } from './components/ProjectList.js';
-import { projectState } from './state/ProjectState.js';
+import { ProjectInput } from './components/ProjectInput';
+import { ProjectList } from './components/ProjectList';
+import { projectState } from './state/ProjectState';
 
 new ProjectInput();
 new ProjectList('active');

@@ -14,6 +14,7 @@
   "author": "Maximilian Schwarzmüller",
   "license": "ISC",
   "devDependencies": {
+    "@types/webpack-dev-server": "^3.11.5",
     "lite-server": "^2.5.4",
     "ts-loader": "^9.2.3",
     "typescript": "^4.3.5",
